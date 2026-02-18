@@ -1126,6 +1126,23 @@
             font-weight: 500;
         }
 
+        /* ===== COUNTDOWN 2 EXTRAS ===== */
+        .countdown-divider {
+            border: none;
+            border-top: 2px dashed rgba(245, 106, 141, 0.3);
+            margin: 28px 0 24px;
+        }
+
+        .countdown-section-title {
+            font-family: 'Mitr', sans-serif;
+            font-size: 1.3em;
+            font-weight: 500;
+            color: var(--pink-4);
+            margin-bottom: 15px;
+            line-height: 1.6;
+            text-align: center;
+        }
+
         /* PROMISE */
         .promise-container { width: 100%; max-width: 500px; padding: 20px; animation: fadeInUp 0.6s ease-out; }
         .promise-title { font-family: 'Mitr', sans-serif; font-size: 2em; font-weight: 600; text-align: center; color: var(--pink-4); margin-bottom: 25px; }
@@ -1376,6 +1393,30 @@
             </div>
         </div>
         <div class="countdown-footer">"รักอ้วนมากขึ้นทุกวินาทีเลยน้าา"</div>
+
+        <!-- ===== COUNTDOWN 2: วันที่รู้จักกัน ===== -->
+        <hr class="countdown-divider">
+        <h2 class="countdown-section-title">จีบอ้วนตั้งแต่ 28 กรกฎาคม 2568<br>"จีบตั้งหลายเดือนอะคุนน"</h2>
+        <div class="countdown-grid">
+            <div class="countdown-box">
+                <div class="countdown-number" id="days2">0</div>
+                <div class="countdown-label">DAYS</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-number" id="hours2">0</div>
+                <div class="countdown-label">HOURS</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-number" id="mins2">0</div>
+                <div class="countdown-label">MINS</div>
+            </div>
+            <div class="countdown-box">
+                <div class="countdown-number" id="secs2">0</div>
+                <div class="countdown-label">SECS</div>
+            </div>
+        </div>
+        <div class="countdown-footer">"ไฟเกือบมอดแหนะะ แต่ก็สู้้้้ ทำไมจีบยาก ฮึ้"</div>
+
         <div class="back-btn-wrap">
             <button class="back-btn" data-goto="screen-boxes">← กลับ</button>
         </div>
@@ -1391,13 +1432,13 @@
 
 สุดท้ายนี้้
 เค้าอยากให้อ้วนรักเค้าไปนานๆเลยนะ
-เค้าคนนี้จะรักอ้วนตลอดปัยย อย่างที่บอกก
+เค้าคนนี้จรักอ้วนตลอดปัยย อย่างที่บอกก
 
 เติ้ลคนนี้จะคอยดูแลผู้หญิงคนนี้ให้ดีที่สุดด
 เอาให้อ้วนไม่ต้องไปอิจฉาใครเลยย😘
 
 จะคอยให้กำลังใจอ้วนอยู่ตรงนี้ตลอดด
-ข้างหลังเฟิร์นจะมีเติ้ลตามต้อยๆอยู่ 1 ก้าวตะเม๋อนะะ55555
+ข้างหลังเฟิร์นจะมีเติ้ลคอมจามต้อยๆอยู่ 1 ก้าวตะเม๋อนะะ55555
 
 อ้วนคือทุกอย่างของเค้าเลยนะะ💞
 ขาดอ้วนไปเติ้ลอยู่ไม่ได้แหง๋๋ๆ
@@ -1405,7 +1446,7 @@
 
 สุดท้ายจริงๆและะ
 เค้ารักอ้วนนะ 
-อ้วนรักเค้าป้าว ถ้ารักส่งยิ้มหวานมาา55555
+อ้วนรักเค้าป้าวว ถ้ารักส่งยิ้มหวานมาา55555
 
 รักนะอ้วนนน 💗</div>
         </div>
@@ -1937,9 +1978,8 @@ document.querySelectorAll('.back-btn').forEach(btn => {
     setTimeout(() => { updateViewportWidth(); goTo(0); }, 60);
 })();
 
-/* ===== COUNTDOWN TIMER ===== */
+/* ===== COUNTDOWN TIMER 1 (วันที่เริ่มคบ: 20 ธ.ค. 2568 เวลา 15:40) ===== */
 (function(){
-    // วันที่เริ่มคบ: 20 ธันวาคม 2568 เวลา 15:40
     const startDate = new Date('2025-12-20T15:40:00+07:00').getTime();
     
     function updateCountdown(){
@@ -1960,7 +2000,29 @@ document.querySelectorAll('.back-btn').forEach(btn => {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 })();
+
+/* ===== COUNTDOWN TIMER 2 (วันที่รู้จักกัน: 28 ก.ค. 2568 เวลา 19:28) ===== */
+(function(){
+    const metDate = new Date('2025-07-28T19:28:00+07:00').getTime();
+    
+    function updateCountdown2(){
+        const now = new Date().getTime();
+        const diff = now - metDate;
+        
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const secs = Math.floor((diff % (1000 * 60)) / 1000);
+        
+        document.getElementById('days2').textContent = days;
+        document.getElementById('hours2').textContent = hours;
+        document.getElementById('mins2').textContent = mins;
+        document.getElementById('secs2').textContent = secs;
+    }
+    
+    updateCountdown2();
+    setInterval(updateCountdown2, 1000);
+})();
 </script>
 </body>
-
 </html>
